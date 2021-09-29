@@ -46,4 +46,8 @@ class Thermostat {
     }
       return this.temperature === this.MAX_LIMIT_PSM_ON;
   }
+
+  resetTemperature() {
+    this.temperature = 20;
+  }
 }
