@@ -55,4 +55,32 @@ describe ('Thermostat', () => {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
+  describe('displaying usgae levels', () => {
+    describe('when temperature is less than 18 degrees', () => {
+      it('is low-usage', () => {
+        for (let i = 0; i < 3; i++) {
+          thermostat.down();
+        }
+        expect(thermostat.energyUsage()).toEqual('low-usage');
+      }); 
+    });
+
+    describe('when temperature is more than 18 and less than 25 degrees', () => {
+      it('is medium-usage', () => {
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
+        });
+      });
+    });
+
+    describe('when temperature is more than 25 degrees', () => {
+      it('is high-usage', () => {
+      thermostat.isPowerSavingMode = false;
+      for (let i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+      });
+    });
 });
+
+
