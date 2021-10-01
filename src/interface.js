@@ -5,10 +5,11 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01
 })
 .then((data) => {
   document.querySelector('#current-temperature').innerText = data.main.temp;
-});
+
 
   const updateTemperature = () => {
-    document.querySelector('#temperature').innerText = thermostat.temperature;
+    console.log(thermostat.temperature)
+    document.querySelector('#temperature').innerHTML = thermostat.temperature;
   }
 
   const thermostat = new Thermostat();
@@ -83,4 +84,5 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01
   }
 
 
+});
 });
